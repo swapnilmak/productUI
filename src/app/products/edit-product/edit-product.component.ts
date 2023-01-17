@@ -25,7 +25,8 @@ export class EditProductComponent implements OnInit {
           detailsId:[""],
           specification:["", Validators.required],
           quantity:["", Validators.required],
-          price:["", Validators.required]
+          price:["", Validators.required],
+          imageURL:["", Validators.required]
         })
       });
   }
@@ -72,7 +73,8 @@ export class EditProductComponent implements OnInit {
         detailsId:[this.product.details.detailsId],
         specification:[this.product.details.specification, Validators.required],
         quantity:[this.product.details.quantity, Validators.required],
-        price:[this.product.details.price, Validators.required]
+        price:[this.product.details.price, Validators.required],
+        imageURL:[this.product.details.imageURL, Validators.required]
       })
     });
   }

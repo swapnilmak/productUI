@@ -5,22 +5,27 @@
         <thead class="bg-primary text-white">
           <tr>
             <th scope="col">Product Details:</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
             <tr>
-            <td>
-                <tr>ID: {{product?.id}}</tr>
-                <tr>Name: {{product?.name | uppercase}}</tr>
-                <tr>Description: {{product?.description}}</tr>
-                <tr>Specification: {{product?.details?.specification}}</tr>
-                <tr>Quantity: {{product?.details?.quantity}}</tr>
-                <tr>Price: <i class="fa fa-inr" aria-hidden="true"></i>{{product?.details?.price}}</tr>
-            </td>
-          </tr>
+              <table>
+                  <tr><td>&nbsp;ID: {{product?.id}}</td></tr>
+                  <tr><td>&nbsp;Name: {{product?.name | uppercase}}</td></tr>
+                  <tr><td>&nbsp;Description: {{product?.description}}</td></tr>
+                  <tr><td>&nbsp;Specification: {{product?.details?.specification}}</td></tr>
+                  <tr><td>&nbsp;Quantity: {{product?.details?.quantity}}</td></tr>
+                  <tr><td>&nbsp;Price: <i class="fa fa-inr" aria-hidden="true"></i>{{product?.details?.price}}</td></tr>
+              </table>
+              <td>
+                <img src="{{product?.details?.imageURL}}" class="rounded float-start" alt="MI Mobile"
+                     style="height: 350px;width: 350px;">
+              </td>
+            </tr>
         </tbody>
     </table>
-    </ng-template>  
+    </ng-template>
     <ng-template #elseBlock>
       <table class="table table-responsive">
         <thead class="bg-danger text-white">
@@ -39,6 +44,5 @@
     </ng-template>
     <button class="btn btn-primary" (click)="previousPage()">Go Back</button>
   </div>
-  
-  
-  
+
+

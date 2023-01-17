@@ -14,27 +14,28 @@ export class AddProductComponent implements OnInit {
   productForm;
 
   constructor(private formBuilder: FormBuilder, private productService: ProductService,
-    private router: Router, private _location: Location) {
+              private router: Router, private _location: Location) {
     this.productForm = this.formBuilder.group({
-      name:['', Validators.required],
-      description:['', Validators.required],
+      name: ['', Validators.required],
+      description: ['', Validators.required],
       details: this.formBuilder.group({
-        specification:['', Validators.required],
-        quantity:['', Validators.required],
-        price:['', Validators.required]
+        specification: ['', Validators.required],
+        quantity: ['', Validators.required],
+        price: ['', Validators.required],
+        imageURL: ["", Validators.required]
       })
     });
   }
 
   ngOnInit(): void {
-   
+
   }
 
   onSubmit() {
     console.log(this.productForm.value);
     this.productService.addProduct(this.productForm.value).subscribe(resp => {
       debugger;
-     this.router.navigate(["/products"]);
+      this.router.navigate(['/products']);
     });
   }
 

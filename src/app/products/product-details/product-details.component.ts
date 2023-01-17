@@ -11,32 +11,28 @@ import {Location} from '@angular/common';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  productexists: boolean = true;
+  productexists = true;
 
   constructor(private productService: ProductService,
-    private activatedRoute: ActivatedRoute, private _location: Location,
+              private activatedRoute: ActivatedRoute, private _location: Location,
     ) {
-   
   }
 
   product: Product;
   ngOnInit(): void {
-    this.product=this.productService.product;
-    if(this.product == null){
-      let id = this.activatedRoute.snapshot.paramMap.get("id");
-      this.productService.getProduct(Number(id)).subscribe(
-        resp => {
-          if(resp != null){
-            this.product = resp;
-          }
-        }, (err) => {
-          debugger;
-          this.productexists = false;
-          console.log("err " + err) ;
-          // throw new Error('Failed');
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.productService.getProduct(Number(id)).subscribe(
+      resp => {
+        if (resp != null){
+          this.product = resp;
         }
-      );
-    }
+      }, (err) => {
+        debugger;
+        this.productexists = false;
+        console.log('err ' + err) ;
+        // throw new Error('Failed');
+      }
+    );
   }
 
   previousPage(){
